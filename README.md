@@ -1,6 +1,6 @@
 # 📡 Portfolio Engineer - Yandi Julian
 
-Selamat datang di portfolio saya sebagai Network Operation Center (NOC) Engineer. Repository ini berisi kumpulan dokumentasi, konfigurasi, dan referensi yang saya gunakan atau buat selama pengalaman saya bekerja di bidang jaringan.
+Selamat datang di portfolio saya sebagai Network Engineer. Repository ini berisi kumpulan dokumentasi, konfigurasi, dan referensi yang saya gunakan atau buat selama pengalaman saya bekerja di bidang jaringan.
 
 ---
 

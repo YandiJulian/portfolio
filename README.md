@@ -27,5 +27,5 @@ Saya adalah seorang Engineer dengan pengalaman dalam monitoring jaringan, konfig
 ---
 
 ## 📬 Kontak
-- 📧 Email: yandijulian@example.com
-- 🌐 LinkedIn: [linkedin.com/in/yandijulian](https://linkedin.com/in/yandijulian)
+- 📧 Email: yandijulian22@example.com
+- 🌐 LinkedIn: https://www.linkedin.com/in/yandi-yulyan-001506188/

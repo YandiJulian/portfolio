@@ -1,0 +1,49 @@
+body {
+    background: url("../static/logo.png") no-repeat center center fixed;
+    background-size: 300px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    opacity: 0.90;
+  }  
+  
+  header, footer {
+    background: #003b75;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  section {
+    background: rgba(255, 255, 255, 0);
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: 8px;
+  }
+
+  header img {
+    display: block;
+    margin: 0 auto;
+  }
+  
+  .nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    list-style: none;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+  
+  .nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .nav a:hover {
+    text-decoration: underline;
+  }
+  
+  
+  

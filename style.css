@@ -1,0 +1,37 @@
+body {
+    font-family: sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background: #f9f9f9;
+    color: #333;
+  }
+  
+  header {
+    background: #0047ab;
+    color: white;
+    text-align: center;
+    padding: 2rem 1rem;
+  }
+  
+  section {
+    padding: 1rem 2rem;
+    max-width: 800px;
+    margin: auto;
+  }
+  
+  .project-card {
+    background: white;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  footer {
+    text-align: center;
+    padding: 1rem;
+    background: #0047ab;
+    color: white;
+    margin-top: 2rem;
+  }
+  

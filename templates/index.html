@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Portofolio Engineer</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header>
+    <img src="{{ url_for('static', filename='foto.jpg') }}" alt="Foto Profil" style="width:150px;border-radius:50%;">
+    <h1>YANDI JULIAN</h1>
+    <p>ENGINEERING AT PLN ICON PLUS</p>
+    <p> Saya memiliki keahlian yang baik dalam aspek-aspek network engineer,
+        khususnya dalam memahami dan mengelola jaringan komputer dan
+        internet, termasuk dalam perencanaan dan pengembangan jaringan
+        FTTH. Dengan kemampuan berpikir analitis  yang baik, saya disiplin,
+        terorganisir, memiliki semangat kerja yang tinggi, dan selalu antusias
+        untuk mempelajari teknologi baru. Selain itu, saya mampu bekerja secara
+        efektif, baik secara individu maupun dalam tim, untuk mencapai tujuan</p>
+  </header>
+
+  <nav>
+    <ul class="nav">
+      <li><a href="#monitoring">Monitoring</a></li>
+      <li><a href="#subnetting">Subnetting</a></li>
+      <li><a href="#troubleshooting">Troubleshooting</a></li>
+      <li><a href="#test">Testcommisioning</a></li>
+    </ul>
+  </nav>  
+
+  <section>
+    <h2>Monitoring Jaringan </h2>
+    <input id="ping-ip" placeholder="Contoh: 8.8.8.8" />
+    <button onclick="ping()">Ping</button>
+    <div id="ping-result"></div>
+  </section>
+
+  <section>
+    <h2>Subnetting Kalkulator</h2>
+    <input id="subnet-ip" placeholder="Contoh: 192.168.1.0" />
+    <input id="subnet-cidr" type="number" placeholder="Contoh: 24" />
+    <button onclick="calculateSubnet()">Hitung</button>
+    <div id="subnet-result"></div>
+  </section>
+
+  <section id="troubleshooting">
+    <h2>Alur Troubleshooting Jaringan</h2>
+    <ol>
+      <li>🔌 <strong>Cek Fisik Jaringan</strong> — Periksa koneksi kabel, port switch, router, dan indikator LED.</li>
+      <li>⚙️ <strong>Validasi Konfigurasi IP</strong> — Gunakan subnetting kalkulator di atas untuk memastikan konfigurasi IP valid dan tidak konflik.</li>
+      <li>📶 <strong>Uji Konektivitas</strong> — Gunakan fitur Ping untuk menguji apakah perangkat dapat terhubung ke jaringan.</li>
+      <li>🛡️ <strong>Periksa Firewall & Routing</strong> — Pastikan tidak ada aturan firewall atau routing yang memblokir koneksi.</li>
+      <li>📝 <strong>Dokumentasi</strong> — Catat langkah perbaikan dan hasil pengujian akhir untuk arsip troubleshooting.</li>
+    </ol>
+  </section>
+  
+  <section id="test">
+    <h2>Testcommisioning</h2>
+    <p>Setelah semua tahapan di atas dilakukan, lakukan uji ping kembali untuk memastikan koneksi jaringan berjalan dengan normal dan stabil.</p>
+  </section>  
+
+  <footer>
+    <p>© 2025 Yandi Julian - EOS Portfolio</p>
+  </footer>
+
+  <script>
+    async function ping() {
+      const ip = document.getElementById("ping-ip").value;
+      const res = await fetch("/ping", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ip })
+      });
+      const data = await res.json();
+      const result = document.getElementById("ping-result");
+      result.innerHTML = data.success ? `<p style="color:green">Online</p>` : `<p style="color:red">Offline</p>`;
+    }
+
+    async function calculateSubnet() {
+      const ip = document.getElementById("subnet-ip").value;
+      const cidr = document.getElementById("subnet-cidr").value;
+      const res = await fetch("/subnet", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ip, cidr })
+      });
+      const data = await res.json();
+      const result = document.getElementById("subnet-result");
+
+      if (data.error) {
+        result.innerHTML = `<p style="color:red">${data.error}</p>`;
+      } else {
+        result.innerHTML = `
+          <p>Network Address: ${data.network}</p>
+          <p>Broadcast: ${data.broadcast}</p>
+          <p>Subnet Mask: ${data.netmask}</p>
+          <p>Jumlah Host: ${data.hosts}</p>
+        `;
+      }
+    }
+  </script>
+</body>
+</html>
